@@ -1,9 +1,9 @@
 branch-defaults:
   master:
-    environment: website-prod
+    environment: personal-website-prod
     group_suffix: null
 global:
-  application_name: website
+  application_name: personal-website
   branch: null
   default_ec2_keyname: null
   default_platform: Node.js

@@ -66,7 +66,7 @@ jobs:
       - run:
           name: Deploy to AWS EB
           command: |
-            eb use website-prod --profile eb-cli  
+            eb use personal-website-prod --profile eb-cli  
             eb deploy -v --staged --profile eb-cli
 
 workflows:
