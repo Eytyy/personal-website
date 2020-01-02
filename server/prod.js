@@ -14,6 +14,8 @@ app.use(express.static(DIST_DIR))
 
 console.log('environment')
 console.log(process.env.ACCESS_TOKEN)
+console.log(process.env.NODE_ENV)
+console.log(process.env.SPACE_ID)
 
 const work = require('./routes/work')
 
