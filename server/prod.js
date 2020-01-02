@@ -12,9 +12,6 @@ const DIST_DIR = __dirname
 
 app.use(express.static(DIST_DIR))
 
-console.log('environment')
-console.log(process.env.ACCESS_TOKEN)
-
 const work = require('./routes/work')
 
 app.use('/api/work', work.route)
