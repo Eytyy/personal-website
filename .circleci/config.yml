@@ -15,10 +15,13 @@ jobs:
           command: npm install
       # Build Project
       - run:
-          name: Run Build
+          name: Build Server
           command: |
-            npm run build
-             # Cache dependencies
+            npm run build:server
+      - run:
+          name: Build Client
+          command: |
+            npm run build:client
       # Cache local dependencies
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}

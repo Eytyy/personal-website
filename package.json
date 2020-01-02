@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:server & npm run build:client",
+    "build": "npm run cleanBuild & npm run build:server & npm run build:client",
     "build:server": "webpack --config webpack.config.server.prod.js",
     "build:client": "webpack --config webpack.config.prod.js",
     "dev": "npm run clean & npm run dev:server & npm run dev:client && npm run dev:start",
@@ -11,6 +11,7 @@
     "dev:server": "webpack --config webpack.config.server.dev.js",
     "dev:client": "webpack --config webpack.config.dev.js",
     "clean": "rm -rf dist",
+    "cleanBuild": "rm -rf build",
     "start": "node ./build/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
