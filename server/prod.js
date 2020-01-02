@@ -49,7 +49,12 @@ function handleRender(req, res, content = {}) {
 
 function renderFullPage(
   html,
-  { title = 'Contentful Demo', description = 'boilerplate', image = '', url }
+  {
+    title = 'Eyas Tayyem',
+    description = 'Front-end Developer and Interaction Designer',
+    image = '',
+    url
+  }
 ) {
   return `
 	<!DOCTYPE html>
@@ -59,7 +64,7 @@ function renderFullPage(
 			<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 			<title>${title}</title>
 			<meta property="description" content="${description}" />
-			<meta property="og:title" content="Contentful Boilerplate | ${title}" />
+			<meta property="og:title" content="Eyas Tayyem | ${title}" />
 			<meta property="og:description" content="${description}" />
 			<meta property="og:url" content="${url}" />
 			<meta property="og:image" content="${image}" />
