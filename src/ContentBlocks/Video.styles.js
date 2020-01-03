@@ -89,12 +89,6 @@ export const VideoControls = styled.div`
       #eyeball {
         animation: none;
       }
-      #upperbrow {
-        transform: translate(48px, 5px);
-      }
-      #lowerbrow {
-        transform: translate(48px, 82px);
-      }
     }
   }
 
