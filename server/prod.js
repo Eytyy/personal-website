@@ -2,6 +2,7 @@ import express from 'express'
 import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
+import { ServerStyleSheet } from 'styled-components'
 
 import App from '../src/App/App'
 
@@ -32,13 +33,18 @@ app.get('/work/:id', (req, res) => {
 })
 
 function handleRender(req, res, content = {}) {
+  const sheet = new ServerStyleSheet()
   const html = renderToString(
-    <StaticRouter location={req.url}>
-      <App />
-    </StaticRouter>
+    sheet.collectStyles(
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    )
   )
+  const styles = sheet.getStyleTags() // <-- getting all the tags from the sheet
+
   const url = req.protocol + '://' + req.get('host') + req.originalUrl
-  res.send(renderFullPage(html, { ...content, url }))
+  res.send(renderFullPage(html, styles, { ...content, url }))
 }
 
 const defaultDescription = `
@@ -49,6 +55,7 @@ Eyas Tayyem`
 
 function renderFullPage(
   html,
+  styles,
   {
     title = defaultTitle,
     description = defaultDescription,
@@ -63,6 +70,7 @@ function renderFullPage(
 			<meta charset="utf-8" />
 			<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 			<title>${title}</title>
+			${styles}
 			<meta property="description" content="${description}" />
 			<meta property="og:title" content="${title}" />
 			<meta property="og:description" content="${description}" />
