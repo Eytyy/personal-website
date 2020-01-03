@@ -53,7 +53,7 @@ export const ContentNav = styled(FloatingNav)`
 `
 
 export const BigType = css`
-  font-size: 32px;
+  font-size: 42px;
   font-family: ${fonts.bold};
   @media (min-width: ${breakpoints.mobile}px) {
     font-size: 52px;

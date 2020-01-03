@@ -19,15 +19,19 @@ route.get('/', (req, res) => {
     .catch(err => console.log(err))
 })
 
-const getProject = id =>
-  client.getEntries({
-    include: 3,
+const getProject = id => {
+  const payload = client.getEntries({
     content_type: 'project',
+    include: 3,
     'fields.slug': id
   })
+  return payload
+}
 
 route.get('/:id', (req, res) => {
-  getProject(req.params.id).then(payload => res.json(payload.items[0]))
+  getProject(req.params.id).then(payload => {
+    return res.json(payload.items[0])
+  })
 })
 
 module.exports = {

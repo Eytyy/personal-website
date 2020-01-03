@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
@@ -12,11 +12,6 @@ const DIST_DIR = __dirname
 
 app.use(express.static(DIST_DIR))
 
-console.log('environment')
-console.log(process.env.ACCESS_TOKEN)
-console.log(process.env.NODE_ENV)
-console.log(process.env.SPACE_ID)
-
 const work = require('./routes/work')
 
 app.use('/api/work', work.route)
@@ -26,14 +21,12 @@ app.get('/', (req, res) => {
 })
 
 app.get('/work/:id', (req, res) => {
-  work.getProject(req.id).then(payload => {
-    const {
-      seo: { title, description, image }
-    } = payload.items[0].fields
+  work.getProject(req.params.id).then(payload => {
+    const { title, description, image } = payload.items[0].fields.seo.fields
     handleRender(req, res, {
-      title,
+      title: `Work | ${title}`,
       image: image ? image.fields.file.url : image,
-      description
+      description: description || title
     })
   })
 })
@@ -47,14 +40,15 @@ function handleRender(req, res, content = {}) {
   res.send(renderFullPage(html, { ...content, url: req.url }))
 }
 
+const defaultDescription = `
+Interaction designer and software engineer focusing on incorporating design and technology to research, design and build simple solutions for complicated problems.
+`
+const defaultTitle = `
+Eyas Tayyem`
+
 function renderFullPage(
   html,
-  {
-    title = 'Eyas Tayyem',
-    description = 'Front-end Developer and Interaction Designer',
-    image = '',
-    url
-  }
+  { title = defaultTitle, description = defaultDescription, image = '', url }
 ) {
   return `
 	<!DOCTYPE html>
@@ -64,7 +58,7 @@ function renderFullPage(
 			<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 			<title>${title}</title>
 			<meta property="description" content="${description}" />
-			<meta property="og:title" content="Eyas Tayyem | ${title}" />
+			<meta property="og:title" content="${title}" />
 			<meta property="og:description" content="${description}" />
 			<meta property="og:url" content="${url}" />
 			<meta property="og:image" content="${image}" />

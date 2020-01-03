@@ -26,7 +26,7 @@ export const Nav = styled.nav`
 
 export const NavigationLink = styled.span`
   ${CommonStyles.BigType}
-  margin: 0px 30px 0px 0px;
+  margin: 0px 60px 0px 0px;
   opacity: 0.2;
   &.active {
     opacity: 1;

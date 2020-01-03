@@ -45,7 +45,7 @@ const Details = ({ match }) => {
 
   // update header height value if header dom node is not null
   // and the current header height is not equal to previous one
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (header.current && header.current.offsetHeight !== heightRef.current) {
       updateHeaderHeight(header.current.offsetHeight)
       heightRef.current = header.current.offsetHeight
