@@ -37,7 +37,8 @@ function handleRender(req, res, content = {}) {
       <App />
     </StaticRouter>
   )
-  res.send(renderFullPage(html, { ...content, url: req.url }))
+  const url = req.protocol + '://' + req.get('host') + req.originalUrl
+  res.send(renderFullPage(html, { ...content, url }))
 }
 
 const defaultDescription = `
