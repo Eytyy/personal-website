@@ -49,7 +49,12 @@ Eyas Tayyem`
 
 function renderFullPage(
   html,
-  { title = defaultTitle, description = defaultDescription, image = '', url }
+  {
+    title = defaultTitle,
+    description = defaultDescription,
+    image = 'https://images.ctfassets.net/f0pb5kelfu8f/6qFIidVPUBEbM7oVR03z7g/a75fe30a2dcb867602fcc16930726369/adw-m9.JPG?w=1920',
+    url
+  }
 ) {
   return `
 	<!DOCTYPE html>
