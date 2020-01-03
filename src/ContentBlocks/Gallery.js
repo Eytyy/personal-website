@@ -48,6 +48,7 @@ const Gallery = ({ slides }) => {
               (max-width: 1440px) 1280px, 
               1920px"
               src={`${fields.file.url}?w=400`}
+              alt="Slider Image"
             />
           </ImageWrapper>
         ))}

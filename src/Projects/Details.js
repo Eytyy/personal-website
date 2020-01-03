@@ -67,9 +67,6 @@ const Details = ({ match }) => {
     ) {
       return
     }
-    console.log(
-      `window.scrollY: ${window.scrollY}, header height: ${heightRef.current}, scrolled: ${scrolledRef.current}`
-    )
     updateScrolledState(prevState => !prevState)
     scrolledRef.current = !scrolledRef.current
   }

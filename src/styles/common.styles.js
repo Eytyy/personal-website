@@ -109,6 +109,15 @@ export const Loading = styled.div`
       margin-right: ${props =>
         props.component ? '20px' : props.big ? '50px' : '10px'};
     }
+    .c2 {
+      animation-delay: 200ms;
+    }
+    .c3 {
+      animation-delay: 400ms;
+    }
+    .c4 {
+      animation-delay: 600ms;
+    }
   }
 
   @keyframes loadingDesktop {
