@@ -1,4 +1,4 @@
-import express, { json } from 'express'
+import express from 'express'
 import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
@@ -25,7 +25,7 @@ app.get('/work/:id', (req, res) => {
     const { title, description, image } = payload.items[0].fields.seo.fields
     handleRender(req, res, {
       title: `Work | ${title}`,
-      image: image ? image.fields.file.url : image,
+      image: image ? `https:${image.fields.file.url}` : image,
       description: description || title
     })
   })
