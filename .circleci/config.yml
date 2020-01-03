@@ -15,6 +15,10 @@ jobs:
           command: npm install
       # Build Project
       - run:
+          name: Copy Statics
+          command: |
+            npm run copyStatics
+      - run:
           name: Build Server
           command: |
             npm run build:server
