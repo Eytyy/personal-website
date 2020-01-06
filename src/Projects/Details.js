@@ -37,6 +37,7 @@ const Details = ({ match }) => {
   }, [match.params.id])
 
   React.useEffect(() => {
+    window.scrollTo(0, 0)
     window.addEventListener('scroll', updateScrolled)
     return function cleanup() {
       window.removeEventListener('scroll', updateScrolled)
