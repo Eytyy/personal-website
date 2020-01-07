@@ -16,7 +16,6 @@ export const Images = styled.div`
 export const ImageWrapper = styled.div`
   transition: opacity 200ms ease-in-out;
   box-shadow: 0px 0px 10px -5px;
-  background: ${vars.colors.blue};
   &.active {
     height: 100%;
     visibility: visible;
