@@ -6,27 +6,26 @@ import PrevBtn from '../icons/PrevBtn'
 
 export const Images = styled.div`
   position: relative;
-  padding-top: 80%;
   width: 100%;
   margin: 0 auto;
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    padding-top: 60%;
     width: 90%;
   }
 `
 
 export const ImageWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   transition: opacity 200ms ease-in-out;
+  box-shadow: 0px 0px 10px -5px;
+  background: ${vars.colors.blue};
   &.active {
+    height: 100%;
+    visibility: visible;
     opacity: 1;
     z-index: 1;
   }
   &.inactive {
+    height: 0px;
+    visibility: hidden;
     opacity: 0;
     z-index: 0;
   }
@@ -34,8 +33,9 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   object-fit: contain;
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  margin: 0 auto;
 `
 
 export const GalleryWrapper = styled.div`

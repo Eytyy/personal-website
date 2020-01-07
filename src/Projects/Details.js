@@ -94,6 +94,7 @@ const Details = ({ match }) => {
     role,
     link
   } = content.fields
+
   return (
     <ProjectWrapper headerHeight={headerHeight} className="project">
       <Header ref={header} state={scrolled ? 'inside' : 'outside'}>

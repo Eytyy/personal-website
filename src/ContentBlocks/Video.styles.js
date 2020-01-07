@@ -60,6 +60,9 @@ export const VideoWrapper = styled.div`
     max-height: 80vh;
   }
 `
+export const VideoCaption = styled.div`
+  margin-top: 10px;
+`
 
 export const VideoControls = styled.div`
   position: absolute;

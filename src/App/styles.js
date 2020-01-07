@@ -54,28 +54,26 @@ export const InfoWrapper = styled.div`
 
 export const ClosePage = styled.div`
   position: fixed;
-  top: 20px;
+  top: 30px;
   right: 10px;
   z-index: 20;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   visibility: ${props => (props.state === 'visible' ? 'visible' : 'hidden')};
   opacity: ${props => (props.state === 'visible' ? 1 : 0)};
   transition: opacity 300ms ease-in-out;
   .w,
   .c {
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
   }
   .c {
     background: ${vars.colors.blue};
   }
-  @media (min-width: ${vars.breakpoints.tablet}px) {
-    top: 30px;
-  }
+
   @media (min-width: ${vars.breakpoints.desktop}px) {
     right: 80px;
     width: 45px;

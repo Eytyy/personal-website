@@ -3,10 +3,15 @@ import PropTypes from 'prop-types'
 
 import VideoIcon from '../icons/VideoIcon'
 
-import { ClosePage, VideoWrapper, VideoControls } from './Video.styles'
+import {
+  ClosePage,
+  VideoWrapper,
+  VideoControls,
+  VideoCaption
+} from './Video.styles'
 import { CommonStyles } from '../styles'
 
-const Video = ({ file }) => {
+const Video = ({ file, description }) => {
   const videoElement = useRef(null)
   const [state, setState] = useState({
     playing: false,
@@ -127,15 +132,16 @@ const Video = ({ file }) => {
           </VideoControls>
         )}
       </VideoWrapper>
-      {/* <div className="media__info">
-        {caption && <div className="caption">{caption}</div>}
-      </div> */}
+      {description && (
+        <VideoCaption className="caption">{description}</VideoCaption>
+      )}
     </div>
   )
 }
 
 Video.propTypes = {
-  file: PropTypes.object
+  file: PropTypes.object,
+  description: PropTypes.string
 }
 
 export default Video
