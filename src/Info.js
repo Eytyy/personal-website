@@ -33,9 +33,9 @@ const Contact = () => {
           simple solutions for complicated problems.
         </p>
         <p>
-          My work spans across a variety of domains ranging from Interactive
-          Installations, UX and UI design, software engineering, to research and
-          planning.
+          My work spans across a variety of domains ranging from front-end
+          development, UX and UI design, Interactive Installations, to research
+          and planning.
         </p>
         <p>
           Previously, I have worked as a Digital Team Lead at Syntax Design, and
