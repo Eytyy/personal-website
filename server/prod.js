@@ -93,7 +93,18 @@ function renderFullPage(
 				src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
 			></script>
 			
-		<script type="text/javascript" src="/app.bundle.js"></script></body>
+			<script type="text/javascript" src="/app.bundle.js"></script>
+			
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41603547-2"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-41603547-2');
+			</script>
+		</body>
 	</html>
 	`
 }
