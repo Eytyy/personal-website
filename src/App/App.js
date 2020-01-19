@@ -7,6 +7,7 @@ import Home from '../Home/Home'
 import { Provider as ProjectsProvider, Details as Project } from '../Projects'
 
 import { Container, ClosePage } from './styles'
+import Contact from '../Contact'
 
 const App = ({ location }) => {
   const [inside, updateLocation] = React.useState(false)
@@ -33,11 +34,13 @@ const App = ({ location }) => {
           <Route exact path="/">
             <Home />
           </Route>
-
           <Route exact path="/work/:id">
             <Project />
           </Route>
         </ProjectsProvider>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
       </main>
     </Container>
   )

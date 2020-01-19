@@ -23,7 +23,7 @@ const ContactStyles = styled.section`
   }
 `
 
-const Contact = () => {
+const Info = () => {
   return (
     <ContactStyles className="contact">
       <div className="info">
@@ -79,4 +79,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Info
