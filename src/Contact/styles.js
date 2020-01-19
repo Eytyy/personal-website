@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { CommonStyles, vars } from '../Styles'
+import { CommonStyles, vars } from '../styles'
 
 export const Form = styled.form`
   ${CommonStyles.FixedWrapperStyle}
