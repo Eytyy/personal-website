@@ -92,8 +92,10 @@ const Details = ({ match }) => {
     collaborators,
     links,
     role,
-    link
+    link,
+    renderMainMediaAsMockUp
   } = content.fields
+  console.log(content.fields)
 
   return (
     <ProjectWrapper headerHeight={headerHeight} className="project">
@@ -104,7 +106,10 @@ const Details = ({ match }) => {
         {role && <div className="role">{role}</div>}
       </Header>
       <ProjectSection>
-        <MediaBlock content={media} />
+        <MediaBlock
+          renderMainMediaAsMockUp={renderMainMediaAsMockUp}
+          content={media}
+        />
         <SubTitle>{brief}</SubTitle>
         <Body>{description}</Body>
         {link && (

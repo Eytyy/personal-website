@@ -15,7 +15,6 @@ export const Images = styled.div`
 
 export const ImageWrapper = styled.div`
   transition: opacity 200ms ease-in-out;
-  box-shadow: 0px 0px 10px -5px;
   &.active {
     height: 100%;
     visibility: visible;
@@ -28,13 +27,6 @@ export const ImageWrapper = styled.div`
     opacity: 0;
     z-index: 0;
   }
-`
-
-export const Image = styled.img`
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100vh;
-  margin: 0 auto;
 `
 
 export const GalleryWrapper = styled.div`

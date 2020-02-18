@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 import {
   GalleryWrapper,
   Images,
-  Image,
   ImageWrapper,
   GalleryPrevBtn,
   GalleryNextBtn
 } from './Gallery.styles'
 
-const Gallery = ({ slides }) => {
+import ProgressiveImage from './ProgressiveImage'
+
+const Gallery = ({ slides, renderMainMediaAsMockUp }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [visibleSlides, updateVisibleSlides] = React.useState([
     slides[0],
@@ -35,23 +36,19 @@ const Gallery = ({ slides }) => {
   return (
     <GalleryWrapper>
       <Images>
-        {visibleSlides.map(({ fields, sys }, index) => (
-          <ImageWrapper
-            key={sys.id}
-            className={index === activeIndex ? 'active' : 'inactive'}
-          >
-            <Image
-              srcSet={`${fields.file.url}?w=500 500w, ${fields.file.url}?w=728 728w, ${fields.file.url}?w=900 900w, ${fields.file.url}?w=1280 1280w, ${fields.file.url}?w=1920 1920w`}
-              sizes="(max-width: 580px) 500px, 
-              (max-width: 768px) 728px, 
-              (max-width: 1024px) 904px, 
-              (max-width: 1440px) 1280px, 
-              1920px"
-              src={`${fields.file.url}?w=400`}
-              alt="Slider Image"
-            />
-          </ImageWrapper>
-        ))}
+        {visibleSlides.map(({ fields, sys }, index) => {
+          return (
+            <ImageWrapper
+              key={sys.id}
+              className={index === activeIndex ? 'active' : 'inactive'}
+            >
+              <ProgressiveImage
+                content={fields}
+                renderMainMediaAsMockUp={renderMainMediaAsMockUp}
+              />
+            </ImageWrapper>
+          )
+        })}
       </Images>
       <div className="gallery__controls">
         <GalleryPrevBtn
@@ -70,6 +67,7 @@ const Gallery = ({ slides }) => {
 }
 
 Gallery.propTypes = {
-  slides: PropTypes.array
+  slides: PropTypes.array,
+  renderMainMediaAsMockUp: PropTypes.bool
 }
 export default Gallery
