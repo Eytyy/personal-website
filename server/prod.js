@@ -80,6 +80,8 @@ function renderFullPage(
 			<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
 			<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+			<link rel="stylesheet" href="/main.css">
+
 		</head>
 	
 		<body>

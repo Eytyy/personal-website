@@ -2,32 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 import { fonts, breakpoints } from './vars.styles'
 
-import TitleFont from '../fonts/GT-Sectra-Display-Super.woff2'
-import BodyFont from '../fonts/GT-Eesti-Text-Light.woff2'
-import BoldFont from '../fonts/GT-Eesti-Text-Bold.woff2'
-
 const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: ${fonts.title};
-    src: url(${TitleFont}) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: ${fonts.regular};
-    src: url(${BodyFont}) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-	@font-face {
-    font-family: ${fonts.bold};
-    src: url(${BoldFont}) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-	}
-	
   html {
     box-sizing: border-box;
 	}

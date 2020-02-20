@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 
 import { App } from './App'
+// eslint-disable-next-line no-unused-vars
+import MainStyles from './styles/main.css'
 import GlobalStyles from './styles/global.styles'
 import DefaultErrorBoundry from './DefaultErrorBoundry'
 

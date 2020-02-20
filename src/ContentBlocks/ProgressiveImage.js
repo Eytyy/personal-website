@@ -14,10 +14,10 @@ const SharedImageStyles = styled.img`
 `
 
 const Thumb = styled(SharedImageStyles)`
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1s ease-in-out;
   opacity: ${props => (props.state === 'visible' ? 1 : 0)};
   z-index: 0;
-  filter: blur(8px);
+  filter: blur(4px);
   object-fit: ${props => (props.layout === 'mockup' ? 'contain' : 'cover')};
 `
 const ImageStyle = styled(SharedImageStyles)`
