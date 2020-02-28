@@ -50,14 +50,13 @@ const animateEyeBulb = keyframes`
 
 export const VideoWrapper = styled.div`
   position: relative;
-  max-height: 80vh;
   overflow: hidden;
   color: ${vars.colors.blue};
 
   video {
     width: 100%;
     height: auto;
-    max-height: 80vh;
+    max-height: 100vh;
   }
 `
 export const VideoCaption = styled.div`

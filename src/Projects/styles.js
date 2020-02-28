@@ -1,19 +1,5 @@
-import styled from 'styled-components'
-import { vars, CommonStyles } from '../styles'
-
-// export const ProjectWrapper = styled.article`
-//   padding: ${vars.layout.gutter_mobile * 3}px ${vars.layout.gutter_mobile * 2}px
-//     ${vars.layout.gutter_mobile * 2}px;
-
-//   @media (min-width: ${vars.breakpoints.mobile}px) {
-//     padding: ${vars.layout.gutter_mobile * 4}px
-//       ${vars.layout.gutter_mobile * 3}px ${vars.layout.gutter_mobile * 3}px;
-//   }
-//   @media (min-width: ${vars.breakpoints.desktop}px) {
-//     padding: ${vars.layout.gutter_desktop * 3}px
-//       ${vars.layout.gutter_desktop * 2}px ${vars.layout.gutter_desktop * 2}px;
-//   }
-// `
+import styled, { css } from 'styled-components'
+import { vars } from '../styles'
 
 export const ListItem = styled.li`
   line-height: 16px;
@@ -98,19 +84,57 @@ export const ProjectWrapper = styled.div`
 `
 
 export const Title = styled.h1`
-  ${CommonStyles.BigType}
-  display: inline;
+  font-family: ${vars.fonts.bold};
+  font-size: 24px;
+  text-transform: lowercase;
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    font-size: 28px;
+  }
 `
 
 export const SubTitle = styled.h2`
-  font-family: ${vars.fonts.title};
+  font-family: ${vars.fonts.bold};
   font-size: 28px;
   line-height: 1;
-  max-width: 920px;
-  margin: 20px 0 10px;
+  max-width: 1020px;
+  margin: 0px 0px 10px;
 
   @media (min-width: ${vars.breakpoints.mobile}px) {
-    margin: 30px 0 15px;
+    font-size: 38px;
+    margin: 0px 0px 15px;
+  }
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    font-size: 42px;
+  }
+
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    margin: 0px 0px 30px;
+    font-size: 62px;
+  }
+`
+
+export const BlockStyle = css`
+  margin-bottom: 60px;
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    margin-bottom: 120px;
+  }
+`
+
+export const Brief = styled.h2`
+  ${BlockStyle}
+  font-family: ${vars.fonts.regular};
+  text-transform: lowercase;
+  font-size: 28px;
+  line-height: 1;
+  max-width: 1020px;
+
+  @media (min-width: ${vars.breakpoints.mobile}px) {
     font-size: 38px;
   }
 
@@ -119,17 +143,16 @@ export const SubTitle = styled.h2`
   }
 
   @media (min-width: ${vars.breakpoints.laptop}px) {
-    font-size: 42px;
+    font-size: 62px;
   }
 
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    margin: 60px 0 30px;
-    font-size: 62px;
+    font-size: 82px;
   }
 `
 
 export const Body = styled.div`
-  max-width: 920px;
+  max-width: 980px;
   line-height: 1.5em;
 
   @media (min-width: ${vars.breakpoints.mobile}px) {
@@ -144,14 +167,26 @@ export const Body = styled.div`
   }
 
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    font-size: 22px;
+    font-size: 24px;
   }
 `
 
-export const ProjectSection = styled.div`
-  margin-bottom: 40px;
+export const ContentBlock = styled.div`
+  ${BlockStyle}
+  .brief {
+    margin-top: 40px;
+  }
+  .block-text {
+    margin-bottom: 40px;
+  }
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
+    .brief {
+      margin-top: 60px;
+    }
+    .block-text {
+      margin-bottom: 60px;
+    }
   }
 `
 
@@ -173,14 +208,8 @@ export const ExternalProjectLink = styled.a`
   }
 `
 
-export const ProjectMetaItem = styled.div`
-  margin-bottom: 20px;
+export const ProjectMetaItem = styled(ContentBlock)`
   line-height: 1.5em;
-
-  h2 {
-    font-family: ${vars.fonts.bold};
-    margin-bottom: 10px;
-  }
 
   &:last-child {
     margin-bottom: 0;
@@ -207,11 +236,9 @@ export const ProjectMetaItem = styled.div`
 
   @media (min-width: ${vars.breakpoints.tablet}px) {
     font-size: 18px;
-    margin-bottom: 30px;
   }
 
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    margin-bottom: 40px;
     font-size: 22px;
   }
 `

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ProjectMetaItem, ExternalProjectLink } from './styles'
+import { ProjectMetaItem, ExternalProjectLink, SubTitle } from './styles'
 import styled from 'styled-components'
 
 const Link = styled(ExternalProjectLink)`
@@ -16,7 +16,7 @@ const Link = styled(ExternalProjectLink)`
 const ProjectLinks = ({ content }) =>
   content ? (
     <ProjectMetaItem>
-      <h2>Links</h2>
+      <SubTitle>Links</SubTitle>
       {content.map((item, index) => (
         <Link href={item} target="_blank" key={`link-${index}`}>
           {item}

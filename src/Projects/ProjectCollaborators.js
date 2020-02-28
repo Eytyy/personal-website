@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ProjectMetaItem, Collaborator } from './styles'
+import { ProjectMetaItem, Collaborator, SubTitle } from './styles'
 
 const ProjectCollaborators = ({ content }) => {
   return content ? (
     <ProjectMetaItem>
-      <h2>Collaborators</h2>
+      <SubTitle>Collaborators</SubTitle>
       {content.map(({ fields, sys }) => (
         <Collaborator key={sys.id}>
           <span className="name">{fields.name}</span>

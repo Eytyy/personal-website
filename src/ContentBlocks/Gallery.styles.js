@@ -8,9 +8,6 @@ export const Images = styled.div`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  @media (min-width: ${vars.breakpoints.desktop}px) {
-    width: 90%;
-  }
 `
 
 export const ImageWrapper = styled.div`
@@ -48,8 +45,13 @@ const GalleryBtnDefaultStyles = css`
 export const GalleryNextBtn = styled(NextBtn)`
   ${GalleryBtnDefaultStyles}
   right: -30px;
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    right: -50px;
+  }
+
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    right: 0px;
+    right: -60px;
   }
 `
 
@@ -57,7 +59,11 @@ export const GalleryPrevBtn = styled(PrevBtn)`
   ${GalleryBtnDefaultStyles}
   left: -30px;
 
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    right: -50px;
+  }
+
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    left: 0px;
+    left: -60px;
   }
 `

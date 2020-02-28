@@ -54,7 +54,7 @@ export const InfoWrapper = styled.div`
 
 export const ClosePage = styled.div`
   position: fixed;
-  top: 30px;
+  top: 20px;
   right: 10px;
   z-index: 20;
   display: grid;
@@ -75,10 +75,11 @@ export const ClosePage = styled.div`
   }
 
   @media (min-width: ${vars.breakpoints.desktop}px) {
-    right: 80px;
+    right: 20px;
     width: 45px;
     height: 45px;
     top: 40px;
+    mix-blend-mode: difference;
     .w,
     .c {
       display: block;

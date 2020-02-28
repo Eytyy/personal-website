@@ -1,11 +1,4 @@
 @font-face {
-  font-family: 'GT Sectra Display';
-  src: url('../fonts/GT-Sectra-Display-Super.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'GT Esti Thin';
   src: url('../fonts/GT-Eesti-Text-Light.woff2') format('woff2');
   font-weight: normal;
