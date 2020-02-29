@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -11,7 +12,7 @@ import {
 } from './Video.styles'
 import { CommonStyles } from '../styles'
 
-const Video = ({ file, description }) => {
+const Video = ({ file, description, autoplay }) => {
   const videoElement = useRef(null)
   const [state, setState] = useState({
     playing: false,
@@ -87,13 +88,24 @@ const Video = ({ file, description }) => {
   return (
     <div className="video-block">
       <VideoWrapper>
-        {/*  eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <video
-          ref={videoElement}
-          preload="auto"
-          src={file.url}
-          className="video"
-        />
+        {autoplay ? (
+          <video
+            loop
+            muted
+            autoPlay
+            ref={videoElement}
+            preload="auto"
+            src={file.url}
+            className="video"
+          />
+        ) : (
+          <video
+            ref={videoElement}
+            preload="auto"
+            src={file.url}
+            className="video"
+          />
+        )}
 
         {loading ? (
           <CommonStyles.Loading component big className="loading">
@@ -141,7 +153,8 @@ const Video = ({ file, description }) => {
 
 Video.propTypes = {
   file: PropTypes.object,
-  description: PropTypes.string
+  description: PropTypes.string,
+  autoplay: PropTypes.bool
 }
 
 export default Video

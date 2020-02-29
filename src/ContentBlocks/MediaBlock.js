@@ -4,24 +4,18 @@ import Video from './Video'
 import ProgressiveImage from './ProgressiveImage'
 import Gallery from './Gallery'
 
-const MediaBlock = ({ content, renderMainMediaAsMockUp }) => {
+const MediaBlock = ({ content, autoplay, fullwidth }) => {
   if (content.length > 1) {
     return (
-      <Gallery
-        renderMainMediaAsMockUp={renderMainMediaAsMockUp}
-        slides={content}
-      />
+      <Gallery autoplay={autoplay} fullwidth={fullwidth} slides={content} />
     )
   } else {
     const singleAsset = content[0]
     if (singleAsset.fields.file.contentType === 'video/mp4') {
-      return <Video {...singleAsset.fields} />
+      return <Video autoplay={autoplay} {...singleAsset.fields} />
     } else {
       return (
-        <ProgressiveImage
-          renderMainMediaAsMockUp={renderMainMediaAsMockUp}
-          content={singleAsset.fields}
-        />
+        <ProgressiveImage fullwidth={fullwidth} content={singleAsset.fields} />
       )
     }
   }

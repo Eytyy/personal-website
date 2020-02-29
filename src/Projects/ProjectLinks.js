@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ProjectMetaItem, ExternalProjectLink, SubTitle } from './styles'
+import { ProjectMetaItem, ExternalProjectLinkStyle, SubTitle } from './styles'
 import styled from 'styled-components'
 
-const Link = styled(ExternalProjectLink)`
+const Link = styled.a`
+  ${ExternalProjectLinkStyle}
   margin-bottom: 10px;
   display: inline-block;
   word-break: break-word;

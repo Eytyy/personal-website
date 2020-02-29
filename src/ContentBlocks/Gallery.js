@@ -11,7 +11,7 @@ import {
 
 import ProgressiveImage from './ProgressiveImage'
 
-const Gallery = ({ slides, renderMainMediaAsMockUp }) => {
+const Gallery = ({ slides, fullwidth, autoplay }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [visibleSlides, updateVisibleSlides] = React.useState([
     slides[0],
@@ -42,10 +42,7 @@ const Gallery = ({ slides, renderMainMediaAsMockUp }) => {
               key={sys.id}
               className={index === activeIndex ? 'active' : 'inactive'}
             >
-              <ProgressiveImage
-                content={fields}
-                renderMainMediaAsMockUp={renderMainMediaAsMockUp}
-              />
+              <ProgressiveImage content={fields} fullwidth={fullwidth} />
             </ImageWrapper>
           )
         })}
@@ -68,6 +65,8 @@ const Gallery = ({ slides, renderMainMediaAsMockUp }) => {
 
 Gallery.propTypes = {
   slides: PropTypes.array,
-  renderMainMediaAsMockUp: PropTypes.bool
+  options: PropTypes.arrayOf(PropTypes.string),
+  fullwidth: PropTypes.bool,
+  autoplay: PropTypes.bool
 }
 export default Gallery

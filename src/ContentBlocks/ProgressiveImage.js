@@ -18,13 +18,13 @@ const Thumb = styled(SharedImageStyles)`
   opacity: ${props => (props.state === 'visible' ? 1 : 0)};
   z-index: 0;
   filter: blur(4px);
-  object-fit: ${props => (props.layout === 'mockup' ? 'contain' : 'cover')};
+  object-fit: ${props => (props.layout === 'fullwidth' ? 'cover' : 'contain')};
 `
 const ImageStyle = styled(SharedImageStyles)`
-  object-fit: ${props => (props.layout === 'mockup' ? 'contain' : 'cover')};
+  object-fit: ${props => (props.layout === 'fullwidth' ? 'cover' : 'contain')};
 `
 
-const ProgressiveImage = ({ content, renderMainMediaAsMockUp }) => {
+const ProgressiveImage = ({ content, fullwidth }) => {
   const [ready, updateState] = React.useState(false)
   const _mounted = useRef()
 
@@ -53,7 +53,7 @@ const ProgressiveImage = ({ content, renderMainMediaAsMockUp }) => {
     <ImageWrapper className="media-block">
       {ready ? (
         <ImageStyle
-          layout={renderMainMediaAsMockUp ? 'mockup' : 'default'}
+          layout={fullwidth ? 'fullwidth' : 'default'}
           alt={content.title}
           srcSet={srcSect}
           sizes={sizes}
@@ -61,7 +61,7 @@ const ProgressiveImage = ({ content, renderMainMediaAsMockUp }) => {
         />
       ) : null}
       <Thumb
-        layout={renderMainMediaAsMockUp ? 'mockup' : 'default'}
+        layout={fullwidth ? 'fullwidth' : 'default'}
         state={ready ? 'hidden' : 'visible'}
         src={`${content.file.url}?w=20`}
         alt={content.title}
@@ -76,7 +76,7 @@ ProgressiveImage.propTypes = {
     title: PropTypes.string,
     file: PropTypes.object
   }),
-  renderMainMediaAsMockUp: PropTypes.bool
+  fullwidth: PropTypes.bool
 }
 
 export default ProgressiveImage

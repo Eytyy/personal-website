@@ -5,9 +5,11 @@ import { withRouter } from 'react-router-dom'
 import { fetchProject } from './actions'
 import { UseStore } from './context'
 
+import PageWithFixedHeader from '../PageWithFixedHeader'
 import ProjectBlock from './ProjectBlock'
 import ProjectCollaborators from './ProjectCollaborators'
 import ProjectLinks from './ProjectLinks'
+import MediaBlock from '../ContentBlocks/MediaBlock'
 
 import {
   Header,
@@ -15,12 +17,11 @@ import {
   Brief,
   ContentBlock,
   Body,
-  ExternalProjectLink
+  WebsiteLink,
+  ProjectRole
 } from './styles'
 
-import MediaBlock from '../ContentBlocks/MediaBlock'
 import { CommonStyles } from '../styles'
-import PageWithFixedHeader from '../PageWithFixedHeader'
 
 const Details = ({ match }) => {
   const { isLoading, content, dispatch } = UseStore(match.params.id)
@@ -49,7 +50,9 @@ const Details = ({ match }) => {
     collaborators,
     links,
     link,
-    renderMainMediaAsMockUp
+    role,
+    autoplay,
+    fullwidth
   } = content.fields
 
   return (
@@ -63,24 +66,34 @@ const Details = ({ match }) => {
           </Header>
           <ContentBlock>
             <Brief>{brief}</Brief>
+            {role && <ProjectRole>{role}</ProjectRole>}
+          </ContentBlock>
+          <ContentBlock>
             <MediaBlock
-              renderMainMediaAsMockUp={renderMainMediaAsMockUp}
+              autoplay={autoplay}
+              fullwidth={fullwidth}
               content={media}
             />
             <div className="brief">
               <Body>{description}</Body>
             </div>
-            {link && (
-              <ExternalProjectLink target="_blank" href={link}>
-                view website
-              </ExternalProjectLink>
-            )}
           </ContentBlock>
           {blocks &&
             blocks.map(({ fields, sys }) => (
-              <ProjectBlock key={sys.id} content={fields} />
+              <ProjectBlock
+                autoplay={autoplay}
+                fullwidth={fullwidth}
+                key={sys.id}
+                content={fields}
+              />
             ))}
-
+          {link && (
+            <WebsiteLink>
+              <a target="_blank" rel="noopener noreferrer" href={link}>
+                visit website
+              </a>
+            </WebsiteLink>
+          )}
           <div className="project_meta">
             <ProjectCollaborators content={collaborators} />
             <ProjectLinks content={links} />

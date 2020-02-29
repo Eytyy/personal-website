@@ -48,18 +48,15 @@ export const ListItemTitle = styled.h3`
 `
 
 export const Header = styled.header`
-  padding: 20px 40px 20px;
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 2;
+  padding: 20px 40px 20px;
   color: ${props => (props.state === 'inside' ? vars.colors.blue : '#000')};
   mix-blend-mode: hard-light;
   transition: color 200ms ease-in-out;
-  .role {
-    max-width: 920px;
-  }
 
   @media (min-width: ${vars.breakpoints.tablet}px) {
     padding: 30px 60px 30px;
@@ -97,6 +94,50 @@ export const Title = styled.h1`
   }
 `
 
+export const BlockStyle = css`
+  margin-bottom: 60px;
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    margin-bottom: 120px;
+  }
+`
+
+export const Brief = styled.h2`
+  font-family: ${vars.fonts.regular};
+  text-transform: lowercase;
+  font-size: 28px;
+  line-height: 1;
+  max-width: 1440px;
+
+  @media (min-width: ${vars.breakpoints.mobile}px) {
+    font-size: 38px;
+  }
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    font-size: 42px;
+  }
+
+  @media (min-width: ${vars.breakpoints.laptop}px) {
+    font-size: 82px;
+  }
+
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    font-size: 102px;
+  }
+`
+
+export const ProjectRole = styled.div`
+  margin-top: 20px;
+  font-size: 20px;
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    font-size: 24px;
+    margin-top: 40px;
+  }
+`
 export const SubTitle = styled.h2`
   font-family: ${vars.fonts.bold};
   font-size: 28px;
@@ -116,38 +157,6 @@ export const SubTitle = styled.h2`
   @media (min-width: ${vars.breakpoints.desktop}px) {
     margin: 0px 0px 30px;
     font-size: 62px;
-  }
-`
-
-export const BlockStyle = css`
-  margin-bottom: 60px;
-  @media (min-width: ${vars.breakpoints.desktop}px) {
-    margin-bottom: 120px;
-  }
-`
-
-export const Brief = styled.h2`
-  ${BlockStyle}
-  font-family: ${vars.fonts.regular};
-  text-transform: lowercase;
-  font-size: 28px;
-  line-height: 1;
-  max-width: 1020px;
-
-  @media (min-width: ${vars.breakpoints.mobile}px) {
-    font-size: 38px;
-  }
-
-  @media (min-width: ${vars.breakpoints.tablet}px) {
-    font-size: 42px;
-  }
-
-  @media (min-width: ${vars.breakpoints.laptop}px) {
-    font-size: 62px;
-  }
-
-  @media (min-width: ${vars.breakpoints.desktop}px) {
-    font-size: 82px;
   }
 `
 
@@ -190,10 +199,9 @@ export const ContentBlock = styled.div`
   }
 `
 
-export const ExternalProjectLink = styled.a`
+export const ExternalProjectLinkStyle = css`
   color: ${vars.colors.blue};
   font-size: 16px;
-  font-family: ${vars.fonts.bold};
 
   @media (min-width: ${vars.breakpoints.mobile}px) {
     font-size: 18px;
@@ -205,6 +213,29 @@ export const ExternalProjectLink = styled.a`
 
   @media (min-width: ${vars.breakpoints.desktop}px) {
     font-size: 24px;
+  }
+`
+
+export const WebsiteLink = styled.div`
+  ${BlockStyle}
+  font-size: 28px;
+  line-height: 1;
+
+  a {
+    color: ${vars.colors.blue};
+    text-decoration: underline;
+  }
+
+  @media (min-width: ${vars.breakpoints.mobile}px) {
+    font-size: 38px;
+  }
+
+  @media (min-width: ${vars.breakpoints.tablet}px) {
+    font-size: 42px;
+  }
+
+  @media (min-width: ${vars.breakpoints.desktop}px) {
+    font-size: 62px;
   }
 `
 

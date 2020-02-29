@@ -60,7 +60,10 @@ export const VideoWrapper = styled.div`
   }
 `
 export const VideoCaption = styled.div`
-  margin-top: 10px;
+  background: ${vars.colors.blue};
+  display: inline-block;
+  color: #fff;
+  padding: 8px;
 `
 
 export const VideoControls = styled.div`
