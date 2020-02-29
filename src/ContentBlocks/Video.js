@@ -101,6 +101,7 @@ const Video = ({ file, description, autoplay }) => {
           />
         ) : (
           <video
+            playsinline
             ref={videoElement}
             preload="auto"
             src={file.url}
