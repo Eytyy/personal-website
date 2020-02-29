@@ -90,7 +90,7 @@ const Video = ({ file, description, autoplay }) => {
       <VideoWrapper>
         {autoplay ? (
           <video
-            playsinline
+            playsInline
             loop
             muted
             autoPlay
@@ -101,7 +101,7 @@ const Video = ({ file, description, autoplay }) => {
           />
         ) : (
           <video
-            playsinline
+            playsInline
             ref={videoElement}
             preload="auto"
             src={file.url}
