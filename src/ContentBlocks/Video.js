@@ -90,6 +90,7 @@ const Video = ({ file, description, autoplay }) => {
       <VideoWrapper>
         {autoplay ? (
           <video
+            playsinline
             loop
             muted
             autoPlay
